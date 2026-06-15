@@ -125,7 +125,7 @@ async def handle_message(update: Update, context: ContextTypes.DEFAULT_TYPE):
 
     if text == "ℹ️ Помощь":
         await update.message.reply_text(
-            "📖 *Как пользоваться:*\n\n"
+            "📖 *Как пользоваться (для вопросов пишите @qqttrep):*\n\n"
             "1️⃣ Выбери категорию файла\n"
             "2️⃣ Выбери файл из списка\n"
             "3️⃣ Файл придёт прямо в чат\n\n"
@@ -151,8 +151,13 @@ async def handle_message(update: Update, context: ContextTypes.DEFAULT_TYPE):
             filepath = os.path.join(folder_map.get(mode, EXE_FOLDER), filename)
 
         if not os.path.exists(filepath):
-            await update.message.reply_text(f"❌ Файл `{filename}` не найден.", parse_mode="Markdown")
-            return
+            folder = os.path.dirname(filepath)
+            match = next((f for f in os.listdir(folder) if f.lower() == filename.lower()), None)
+            if match:
+                filepath = os.path.join(folder, match)
+            else:
+                await update.message.reply_text(f"❌ Файл `{filename}` не найден.", parse_mode="Markdown")
+                return
 
         size_mb = os.path.getsize(filepath) / (1024 * 1024)
         await update.message.reply_text(f"⏳ Отправляю *{filename}* ({size_mb:.1f} МБ)...", parse_mode="Markdown")
