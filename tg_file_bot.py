@@ -170,7 +170,7 @@ async def handle_message(update: Update, context: ContextTypes.DEFAULT_TYPE):
             await update.message.reply_text(f"❌ Ошибка: {e}")
         return
 
-    await update.message.reply_text("Используй кнопки клавиатуры 👇", reply_markup=MAIN_KEYBOARD)
+    await update.message.reply_text("Используй кнопки клавиатуры (примечание то что у файлов убрана одна буква на пример не Petya.exe а etya.exe) 👇", reply_markup=MAIN_KEYBOARD)
 
 
 def main():
