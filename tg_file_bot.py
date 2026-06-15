@@ -65,7 +65,7 @@ def build_file_keyboard(files: list[str]) -> ReplyKeyboardMarkup:
 
 async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
     await update.message.reply_text(
-        "👋 *Привет!* Я бот для отправки файлов.\n\nВыбери категорию на клавиатуре (примечание то что у файлов убрана одна буква на пример не Petya.exe а etya.exe) 👇",
+        "👋 *Привет!* Я бот для отправки файлов (примечание то что у файлов убрана одна буква на пример не Petya.exe а etya.exe) .\n\nВыбери категорию на клавиатуре 👇",
         parse_mode="Markdown",
         reply_markup=MAIN_KEYBOARD
     )
