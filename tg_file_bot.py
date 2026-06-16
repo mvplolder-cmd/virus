@@ -12,7 +12,7 @@ logger = logging.getLogger(__name__)
 # =============================================
 # НАСТРОЙКИ — замени на свои значения
 # =============================================
-BOT_TOKEN = "8732875693:AAEQ_To_tEYQYvxUFGvPtT54JFAHypztVfE"   # Получи у @BotFather
+BOT_TOKEN = "8732875693:AAEQ_To_tEYQYvxUFGvPtT54JFAHypztV"   # Получи у @BotFather
 
 # Папки с файлами
 EXE_FOLDER = "files/exe"
@@ -125,7 +125,7 @@ async def handle_message(update: Update, context: ContextTypes.DEFAULT_TYPE):
 
     if text == "ℹ️ Помощь":
         await update.message.reply_text(
-            "📖 *Как пользоваться (для вопросов пишите @qqttrep):*\n\n"
+            "📖 *Как пользоваться:*\n\n"
             "1️⃣ Выбери категорию файла\n"
             "2️⃣ Выбери файл из списка\n"
             "3️⃣ Файл придёт прямо в чат\n\n"
@@ -137,7 +137,7 @@ async def handle_message(update: Update, context: ContextTypes.DEFAULT_TYPE):
         return
 
     if text.startswith("📥 "):
-        filename = text[3:].strip()
+        filename = text.replace("📥 ", "", 1).strip()
         mode = context.user_data.get("mode", "")
 
         if filename.lower().endswith(".exe"):
