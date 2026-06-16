@@ -12,7 +12,7 @@ logger = logging.getLogger(__name__)
 # =============================================
 # НАСТРОЙКИ — замени на свои значения
 # =============================================
-BOT_TOKEN = "8732875693:AAEQ_To_tEYQYvxUFGvPtT54JFAHypztV"   # Получи у @BotFather
+BOT_TOKEN = "8732875693:AAGheIfYFsFjnFJLIyseKk7BOTtLwFXnsqI"   # Получи у @BotFather
 
 # Папки с файлами
 EXE_FOLDER = "files/exe"
